@@ -11,8 +11,6 @@ A deep learning web application that detects whether a fingerprint is **live** o
 
 Upload a fingerprint image through the web interface and get an instant prediction with confidence scores.
 
-![Web App](static/analytics/model_comparison.png)
-
 ---
 
 ## Project Overview
