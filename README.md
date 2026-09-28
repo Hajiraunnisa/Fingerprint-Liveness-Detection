@@ -1,7 +1,6 @@
 # Fingerprint-Liveness-Detection
 Lightweight Deep learning Framework On fingerprint Liveness Detection using Genetic Algorithm
 <div align="center">
-
 <div align="center">
 
 # 🔍 Fingerprint Liveness Detection
@@ -23,7 +22,7 @@ Lightweight Deep learning Framework On fingerprint Liveness Detection using Gene
 
 <div align="center">
 
-![Model Comparison](assets/model_comparison.png)
+![Model Comparison](model_comparison.png)
 
 </div>
 
@@ -56,10 +55,10 @@ Fingerprint Image
 <div align="center">
 
 ### Confusion Matrix
-![Confusion Matrix](assets/confusion_matrix_dt.png)
+![Confusion Matrix](confusion_matrix_dt.png)
 
 ### ROC Curve
-![ROC Curve](assets/roc_dt.png)
+![ROC Curve](roc_dt.png)
 
 </div>
 
@@ -67,7 +66,7 @@ Fingerprint Image
 
 | Accuracy | Precision | Recall | F1-Score |
 |:--------:|:---------:|:------:|:--------:|
-| ![Accuracy](assets/accuracy_comparison.png) | ![Precision](assets/precision_comparison.png) | ![Recall](assets/recall_comparison.png) | ![F1](assets/f1_comparison.png) |
+| ![Accuracy](accuracy_comparison.png) | ![Precision](precision_comparison.png) | ![Recall](recall_comparison.png) | ![F1](f1_comparison.png) |
 
 </div>
 
