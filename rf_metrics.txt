@@ -1,0 +1,17 @@
+Random Forest Performance
+=========================
+
+Accuracy : 0.9801
+Precision : 0.9707
+Recall : 0.9900
+F1-score : 0.9803
+AUC : 0.9972
+
+              precision    recall  f1-score   support
+
+        Fake       0.99      0.97      0.98      1008
+        Live       0.97      0.99      0.98      1003
+
+    accuracy                           0.98      2011
+   macro avg       0.98      0.98      0.98      2011
+weighted avg       0.98      0.98      0.98      2011

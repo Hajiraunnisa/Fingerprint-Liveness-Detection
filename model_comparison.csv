@@ -1,0 +1,7 @@
+Model,Accuracy,Precision,Recall,F1 Score
+"CNN
+alone",96.37,93.22,100.0,96.49
+"CNN + GA
++ CNN head",93.68,91.48,96.31,93.83
+"CNN + GA
++ Decision Tree",98.21,97.54,98.9,98.22
