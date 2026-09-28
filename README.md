@@ -21,8 +21,7 @@ Lightweight Deep learning Framework On fingerprint Liveness Detection using Gene
 
 <div align="center">
 
-![Model Comparison](https://raw.githubusercontent.com/Hajiraunnisa/Fingerprint-Liveness-Detection/static/static/analytics/model_comparison.png)
-
+![Model Comparison]model_comparison.png
 </div>
 
 | Stage | Method | Accuracy | Precision | Recall | F1-Score |
