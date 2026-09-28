@@ -1,226 +1,189 @@
 # Fingerprint-Liveness-Detection
 Lightweight Deep learning Framework On fingerprint Liveness Detection using Genetic Algorithm
-# Fingerprint Liveness Detection
+<div align="center">
+
+# 🔍 Fingerprint Liveness Detection
+
 ### CNN + Genetic Algorithm Feature Selection + Decision Tree
 
-A deep learning web application that detects whether a fingerprint is **live** or **fake (spoof)** using a hybrid pipeline: a custom CNN for feature extraction, a Genetic Algorithm (GA) for optimal feature selection, and a Decision Tree classifier for final prediction.
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python)](https://www.python.org/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange?style=for-the-badge&logo=tensorflow)](https://www.tensorflow.org/)
+[![Flask](https://img.shields.io/badge/Flask-Web%20App-black?style=for-the-badge&logo=flask)](https://flask.palletsprojects.com/)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-yellow?style=for-the-badge&logo=scikit-learn)](https://scikit-learn.org/)
+
+**A deep learning web application that detects whether a fingerprint is live or spoofed using a hybrid CNN + GA + Decision Tree pipeline achieving 98.21% accuracy.**
+
+</div>
 
 ---
 
-## Demo
+## 📊 Model Performance
 
-Upload a fingerprint image through the web interface and get an instant prediction with confidence scores.
+<div align="center">
 
----
+![Model Comparison](https://raw.githubusercontent.com/Hajiraunnisa/Fingerprint-Liveness-Detection/static/static/analytics/model_comparison.png)
 
-## Project Overview
+</div>
 
-Fingerprint spoofing is a serious threat to biometric security systems. This project addresses it with a three-stage pipeline:
-
-| Stage | Method | Accuracy |
-|-------|--------|----------|
-| 1 | CNN alone | 96.37% |
-| 2 | CNN + GA + CNN head | 93.68% |
-| 3 | CNN + GA + Decision Tree ✅ | **98.21%** |
-
-The deployed model (Stage 3) achieves **98.21% accuracy**, **97.54% precision**, **98.90% recall**, and **98.22% F1-score**.
+| Stage | Method | Accuracy | Precision | Recall | F1-Score |
+|:-----:|--------|:--------:|:---------:|:------:|:--------:|
+| 1 | CNN alone | 96.37% | 93.22% | 100.00% | 96.49% |
+| 2 | CNN + GA + CNN head | 93.68% | 91.48% | 96.31% | 93.83% |
+| ✅ 3 | **CNN + GA + Decision Tree** | **98.21%** | **97.54%** | **98.90%** | **98.22%** |
 
 ---
 
-## Features
-
-- Custom 4-block CNN with LeakyReLU, BatchNorm, and L2 regularization
-- Genetic Algorithm (GA) for selecting the most discriminative CNN features
-- Decision Tree classifier trained on GA-selected features
-- Flask web app with drag-and-drop image upload
-- Analytics dashboard with model comparison charts, confusion matrix, and ROC curve
-- Supports BMP, PNG, JPG, JPEG fingerprint images
-
----
-
-## Tech Stack
-
-- **Backend:** Python, Flask
-- **Deep Learning:** TensorFlow / Keras
-- **Machine Learning:** scikit-learn
-- **Image Processing:** OpenCV
-- **Data & Visualization:** NumPy, Matplotlib, Seaborn, Pandas
-
----
-
-## Project Structure
+## 🧠 How It Works
 
 ```
-├── app.py                        # Flask web application
-├── Cnn.py                        # CNN architecture definition
-├── train.py                      # CNN training script
-├── feature_extraction.py         # Extract CNN features from dataset
-├── ga_feature_selection.py       # Genetic Algorithm for feature selection
-├── decision_tree.py              # Train & evaluate Decision Tree
-├── comparision.py                # Generate model comparison charts
-├── selected_feature_indices.txt  # GA-selected feature indices
-├── best_chromosome.npy           # Best GA chromosome
-├── best_features.npy             # Selected feature indices (numpy)
-├── models/
-│   ├── best_cnn.keras            # Trained CNN model
-│   └── decision_tree.pkl         # Trained Decision Tree model
-├── dataset/
-│   ├── train/
-│   │   ├── live/                 # Live fingerprint images
-│   │   └── fake/                 # Spoofed fingerprint images
-│   └── val/
-│       ├── live/
-│       └── fake/
-├── static/
-│   ├── uploads/                  # Uploaded images (runtime)
-│   └── analytics/                # Charts and metrics
-├── templates/
-│   ├── index.html                # Main detection page
-│   └── analytics.html            # Analytics dashboard
-└── graphs/                       # Training accuracy/loss plots
+Fingerprint Image
+       ↓
+  CNN Feature Extractor  (leaky_re_lu_5 layer → 256-dim features)
+       ↓
+  Genetic Algorithm      (selects optimal discriminative features)
+       ↓
+  Decision Tree          (Live / Fake classification)
+       ↓
+  Web App Result         (Prediction + Confidence Score)
 ```
 
 ---
 
-## Dataset
+## 📈 Analytics & Results
 
-This project uses the **LivDet** fingerprint liveness detection dataset, which contains live and spoofed fingerprint images in `.BMP` format. Images are organized into `train/live`, `train/fake`, `val/live`, and `val/fake` folders.
+<div align="center">
 
-> The dataset is **not included** in this repository due to its size (~10,000+ images). Download it from [LivDet](https://livdet.org/) and place it in the `dataset/` folder.
+### Confusion Matrix
+![Confusion Matrix](https://raw.githubusercontent.com/Hajiraunnisa/Fingerprint-Liveness-Detection/static/static/analytics/confusion_matrix_dt.png)
 
----
+### ROC Curve
+![ROC Curve](https://raw.githubusercontent.com/Hajiraunnisa/Fingerprint-Liveness-Detection/static/static/analytics/roc_dt.png)
 
-## Setup & Installation
+</div>
 
-### 1. Clone the repository
+<div align="center">
 
-```bash
-git clone https://github.com/your-username/fingerprint-liveness-detection.git
-cd fingerprint-liveness-detection
-```
+| Accuracy | Precision | Recall | F1-Score |
+|:--------:|:---------:|:------:|:--------:|
+| ![Accuracy](https://raw.githubusercontent.com/Hajiraunnisa/Fingerprint-Liveness-Detection/static/static/analytics/accuracy_comparison.png) | ![Precision](https://raw.githubusercontent.com/Hajiraunnisa/Fingerprint-Liveness-Detection/static/static/analytics/precision_comparison.png) | ![Recall](https://raw.githubusercontent.com/Hajiraunnisa/Fingerprint-Liveness-Detection/static/static/analytics/recall_comparison.png) | ![F1](https://raw.githubusercontent.com/Hajiraunnisa/Fingerprint-Liveness-Detection/static/static/analytics/f1_comparison.png) |
 
-### 2. Install dependencies
-
-```bash
-pip install tensorflow keras flask opencv-python scikit-learn numpy matplotlib seaborn pandas joblib
-```
-
-### 3. Prepare the dataset
-
-Place the dataset in the following structure:
-```
-dataset/
-  train/
-    live/   ← live fingerprint images
-    fake/   ← spoof fingerprint images
-  val/
-    live/
-    fake/
-```
+</div>
 
 ---
 
-## Training Pipeline
-
-Run these scripts **in order** to train the full pipeline from scratch:
-
-```bash
-# Step 1: Train the CNN
-python train.py
-
-# Step 2: Extract CNN features from the dataset
-python feature_extraction.py
-
-# Step 3: Run Genetic Algorithm for feature selection
-python ga_feature_selection.py
-
-# Step 4: Train the Decision Tree on selected features
-python decision_tree.py
-
-# Step 5: Generate model comparison charts
-python comparision.py
-```
-
----
-
-## Running the Web App
-
-Once the models are trained (or you have pre-trained models in `models/`):
-
-```bash
-python app.py
-```
-
-Open your browser at `http://127.0.0.1:5000`
-
----
-
-## Model Architecture
-
-The CNN consists of 4 convolutional blocks followed by fully connected layers:
+## 🏗️ CNN Architecture
 
 ```
 Input (224×224×3)
- → Conv2D(32) + BN + LeakyReLU + MaxPool
- → Conv2D(64) + BN + LeakyReLU + MaxPool
- → Conv2D(128) + BN + LeakyReLU + MaxPool
- → Conv2D(256) + BN + LeakyReLU
- → GlobalAveragePooling2D
- → Dense(256) + LeakyReLU + Dropout(0.5)
- → Dense(128) + LeakyReLU + Dropout(0.3)
- → Dense(1, sigmoid)
+ ├─ Conv2D(32)  + BatchNorm + LeakyReLU + MaxPool
+ ├─ Conv2D(64)  + BatchNorm + LeakyReLU + MaxPool
+ ├─ Conv2D(128) + BatchNorm + LeakyReLU + MaxPool
+ ├─ Conv2D(256) + BatchNorm + LeakyReLU
+ ├─ GlobalAveragePooling2D
+ ├─ Dense(256)  + LeakyReLU + Dropout(0.5)
+ ├─ Dense(128)  + LeakyReLU + Dropout(0.3)
+ └─ Dense(1, sigmoid)  →  Live / Fake
 ```
-
-Features are extracted from the `leaky_re_lu_5` layer, reduced by the GA, then fed to the Decision Tree.
 
 ---
 
-## Genetic Algorithm
+## 🧬 Genetic Algorithm
 
 | Parameter | Value |
-|-----------|-------|
-| Population size | 30 |
+|-----------|:-----:|
+| Population Size | 30 |
 | Generations | 20 |
-| Mutation rate | 5% |
-| Elite size | 2 |
+| Mutation Rate | 5% |
+| Elite Size | 2 |
 | Selection | Tournament (k=3) |
-| Fitness | 0.7 × Accuracy + 0.3 × F1 |
+| Fitness Function | 0.7 × Accuracy + 0.3 × F1 |
 
 ---
 
-## Results
+## 🛠️ Tech Stack
 
-| Metric | Value |
-|--------|-------|
-| Accuracy | 98.21% |
-| Precision | 97.54% |
-| Recall | 98.90% |
-| F1-Score | 98.22% |
+| Category | Tools |
+|----------|-------|
+| Deep Learning | TensorFlow / Keras |
+| Machine Learning | scikit-learn |
+| Image Processing | OpenCV |
+| Web Framework | Flask |
+| Data & Visualization | NumPy, Pandas, Matplotlib, Seaborn |
 
 ---
 
-## Files to Add to `.gitignore`
+## 📁 Project Structure
 
 ```
-dataset/
-models/
-static/uploads/
-*.npy
-__pycache__/
-*.pyc
-*.docx
-History/
+├── app.py                        ← Flask web application
+├── Cnn.py                        ← CNN architecture
+├── train.py                      ← CNN training script
+├── feature_extraction.py         ← Extract CNN features
+├── ga_feature_selection.py       ← Genetic Algorithm feature selection
+├── decision_tree.py              ← Decision Tree training & evaluation
+├── comparision.py                ← Model comparison charts
+├── selected_feature_indices.txt  ← GA-selected feature indices
+├── models/
+│   ├── best_cnn.keras            ← Trained CNN
+│   └── decision_tree.pkl         ← Trained Decision Tree
+├── dataset/
+│   ├── train/  (live/ + fake/)
+│   └── val/    (live/ + fake/)
+├── static/analytics/             ← Charts and metrics
+└── templates/
+    ├── index.html                ← Detection page
+    └── analytics.html            ← Analytics dashboard
 ```
 
 ---
 
-## Author
+## 🚀 Setup & Run
 
-**Hajira**  
-Final Year Major Project — Fingerprint Liveness Detection using Deep Learning and Evolutionary Computation
+### 1. Clone
+```bash
+git clone https://github.com/Hajiraunnisa/Fingerprint-Liveness-Detection.git
+cd Fingerprint-Liveness-Detection
+```
+
+### 2. Install dependencies
+```bash
+pip install tensorflow flask opencv-python scikit-learn numpy matplotlib seaborn pandas joblib
+```
+
+### 3. Prepare dataset
+Place the [LivDet dataset](https://livdet.org/) into:
+```
+dataset/train/live/   ← live fingerprints
+dataset/train/fake/   ← spoof fingerprints
+dataset/val/live/
+dataset/val/fake/
+```
+
+### 4. Train the pipeline (in order)
+```bash
+python train.py                  # Step 1: Train CNN
+python feature_extraction.py     # Step 2: Extract features
+python ga_feature_selection.py   # Step 3: Run Genetic Algorithm
+python decision_tree.py          # Step 4: Train Decision Tree
+```
+
+### 5. Run the web app
+```bash
+python app.py
+```
+Open `http://127.0.0.1:5000` in your browser.
 
 ---
 
-## License
+## 📦 Dataset
 
-This project is for academic purposes.
+This project uses the **LivDet** fingerprint liveness detection dataset (~10,000 `.BMP` images).
+The dataset is **not included** in this repo due to size. Download from [livdet.org](https://livdet.org/).
+
+---
+
+<div align="center">
+
+Made with ❤️ by **Hajira** — Final Year Major Project
+
+</div>
