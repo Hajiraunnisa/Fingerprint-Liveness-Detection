@@ -2,6 +2,8 @@
 Lightweight Deep learning Framework On fingerprint Liveness Detection using Genetic Algorithm
 <div align="center">
 
+<div align="center">
+
 # 🔍 Fingerprint Liveness Detection
 
 ### CNN + Genetic Algorithm Feature Selection + Decision Tree
@@ -21,7 +23,8 @@ Lightweight Deep learning Framework On fingerprint Liveness Detection using Gene
 
 <div align="center">
 
-![Model Comparison]model_comparison.png
+![Model Comparison](assets/model_comparison.png)
+
 </div>
 
 | Stage | Method | Accuracy | Precision | Recall | F1-Score |
@@ -53,10 +56,10 @@ Fingerprint Image
 <div align="center">
 
 ### Confusion Matrix
-![Confusion Matrix](https://raw.githubusercontent.com/Hajiraunnisa/Fingerprint-Liveness-Detection/static/static/analytics/confusion_matrix_dt.png)
+![Confusion Matrix](assets/confusion_matrix_dt.png)
 
 ### ROC Curve
-![ROC Curve](https://raw.githubusercontent.com/Hajiraunnisa/Fingerprint-Liveness-Detection/static/static/analytics/roc_dt.png)
+![ROC Curve](assets/roc_dt.png)
 
 </div>
 
@@ -64,7 +67,7 @@ Fingerprint Image
 
 | Accuracy | Precision | Recall | F1-Score |
 |:--------:|:---------:|:------:|:--------:|
-| ![Accuracy](https://raw.githubusercontent.com/Hajiraunnisa/Fingerprint-Liveness-Detection/static/static/analytics/accuracy_comparison.png) | ![Precision](https://raw.githubusercontent.com/Hajiraunnisa/Fingerprint-Liveness-Detection/static/static/analytics/precision_comparison.png) | ![Recall](https://raw.githubusercontent.com/Hajiraunnisa/Fingerprint-Liveness-Detection/static/static/analytics/recall_comparison.png) | ![F1](https://raw.githubusercontent.com/Hajiraunnisa/Fingerprint-Liveness-Detection/static/static/analytics/f1_comparison.png) |
+| ![Accuracy](assets/accuracy_comparison.png) | ![Precision](assets/precision_comparison.png) | ![Recall](assets/recall_comparison.png) | ![F1](assets/f1_comparison.png) |
 
 </div>
 
@@ -122,13 +125,14 @@ Input (224×224×3)
 ├── decision_tree.py              ← Decision Tree training & evaluation
 ├── comparision.py                ← Model comparison charts
 ├── selected_feature_indices.txt  ← GA-selected feature indices
+├── assets/                       ← Charts for README
 ├── models/
 │   ├── best_cnn.keras            ← Trained CNN
 │   └── decision_tree.pkl         ← Trained Decision Tree
 ├── dataset/
 │   ├── train/  (live/ + fake/)
 │   └── val/    (live/ + fake/)
-├── static/analytics/             ← Charts and metrics
+├── static/analytics/             ← Runtime charts
 └── templates/
     ├── index.html                ← Detection page
     └── analytics.html            ← Analytics dashboard
@@ -186,4 +190,3 @@ The dataset is **not included** in this repo due to size. Download from [livdet.
 Made with ❤️ by **Hajira** — Final Year Major Project
 
 </div>
-
